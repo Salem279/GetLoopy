@@ -1,15 +1,34 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.util.Random;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+public class Main {
+
+    public static void main(String[] args) {
+
+        Random rnd = new Random();
+
+        int roll = 1;
+
+        System.out.println("Roll  Die1  Die2  Die3  Sum");
+        System.out.println("--------------------------------");
+
+        while(true) {
+
+            int d1 = rnd.nextInt(6) + 1;
+            int d2 = rnd.nextInt(6) + 1;
+            int d3 = rnd.nextInt(6) + 1;
+
+            int sum = d1 + d2 + d3;
+
+            System.out.printf("%4d %5d %5d %5d %5d\n", roll, d1, d2, d3, sum);
+
+            if(d1 == d2 && d2 == d3) {
+                System.out.println("\nTriple rolled! Game ends.");
+                break;
+            }
+
+            roll++;
         }
+
     }
+
 }
